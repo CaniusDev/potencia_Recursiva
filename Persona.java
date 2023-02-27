@@ -75,22 +75,21 @@ class Area extends Trabajo{
         this.ciudad = ciudad;
     }
     public static int calcularPotencia(int base, int exponente) {
+        // condición cuando el exponente es igual a 0
         if (exponente == 0) {
             return 1;
-        } else if (exponente % 2 == 0) {
-            int mitad = calcularPotencia(base, exponente/2);
-            return mitad * mitad;
-        } else {
-            int mitad = calcularPotencia(base, (exponente-1)/2);
-            return base * mitad * mitad;
+        }
+        // condición exponente es mayor que cero
+        else {
+            return base * calcularPotencia(base, exponente - 1);
         }
     }
 
     public static void main(String[] args) {
 
         //Potencia de un numero con recursividad
-        int base = 2;
-        int exponente = 5;
+        int base = 4;
+        int exponente = 6;
         int potencia = calcularPotencia(base, exponente);
         System.out.println(base + " elevado a la " + exponente + " es igual a " + potencia);
 
